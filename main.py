@@ -2,6 +2,8 @@ import pygame
 from constants import *
 from logger import log_state
 from player import Player
+from asteroid import Asteroid
+from asteroidfield import AsteroidField
 
 def main() -> None:
     print(f"Starting Asteroids with pygame version: {pygame.version.ver}")
@@ -18,6 +20,9 @@ def main() -> None:
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
     Player.containers = (updatable, drawable)
+    Asteroid.containers = (updatable, drawable)
+    AsteroidField.containers = (updatable)
+    asteroidfield = AsteroidField()
     player = Player(x, y)
 
     while True:
